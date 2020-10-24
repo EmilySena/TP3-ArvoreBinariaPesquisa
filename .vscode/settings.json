@@ -1,0 +1,7 @@
+{
+    "C_Cpp.default.compilerPath": "/home/marijuana/.vscode/extensions/bartmanabyss.amiga-debug-1.0.0\\bin\\opt\\bin\\m68k-amiga-elf-gcc.exe",
+    "files.associations": {
+        "*.tpp": "cpp"
+    },
+    "terminal.integrated.shell.windows": "cmd.exe"
+}
