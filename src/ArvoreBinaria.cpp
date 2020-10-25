@@ -20,7 +20,7 @@ void ArvoreBinaria::InsereRecursivo(Node *&p, TipoItem item)
     }
     else
     {
-        if (item.GetChave() < p->item.GetChave())
+        if (item.GetPalavra() < p->item.GetPalavra())
             InsereRecursivo(p->esq, item);
         else
             InsereRecursivo(p->dir, item);
@@ -90,13 +90,22 @@ TipoItem ArvoreBinaria::PesquisaRecursivo(Node *no, int chave)
     else
         return no->item;
 }
-void ArvoreBinaria::PreOrdem(Node *p)
+void ArvoreBinaria::PreOrdemChave(Node *p)
 {
     if (p != nullptr)
     {
-        p->item.Imprime();
-        PreOrdem(p->esq);
-        PreOrdem(p->dir);
+        p->item.ImprimeChave();
+        PreOrdemChave(p->esq);
+        PreOrdemChave(p->dir);
+    }
+}
+void ArvoreBinaria::PreOrdemPalavra(Node *p)
+{
+    if (p != nullptr)
+    {
+        p->item.ImprimePalavra();
+        PreOrdemPalavra(p->esq);
+        PreOrdemPalavra(p->dir);
     }
 }
 /*void ArvoreBinaria::InOrdem(Node *p)

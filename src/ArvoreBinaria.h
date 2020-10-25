@@ -19,7 +19,8 @@ private:
     TipoItem PesquisaRecursivo(Node* p, int chave);
     void RemoveRecursivo(Node* &p, int chave);
     void Antecessor(Node* q, Node* &r);
-    void PreOrdem(Node *p);
+    void PreOrdemChave(Node *p);
+    void PreOrdemPalavra(Node *p);
  /*   void InOrdem(Node *p);
     void PosOrdem(Node *p);
     */
