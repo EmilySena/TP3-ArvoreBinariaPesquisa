@@ -75,6 +75,10 @@ TipoItem ArvoreBinaria::Pesquisa(int chave)
 {
     return PesquisaRecursivo(raiz, chave);
 }
+TipoItem ArvoreBinaria::Pesquisa(std::string palavra)
+{
+    return PesquisaRecursivo(raiz, palavra);
+}
 TipoItem ArvoreBinaria::PesquisaRecursivo(Node *no, int chave)
 {
     TipoItem aux;
@@ -90,13 +94,33 @@ TipoItem ArvoreBinaria::PesquisaRecursivo(Node *no, int chave)
     else
         return no->item;
 }
-void ArvoreBinaria::PreOrdemChave(Node *p)
+TipoItem ArvoreBinaria::PesquisaRecursivo(Node *no, std::string palavra)
+{
+    TipoItem aux;
+    if (no == nullptr)
+    {
+        aux.SetChave(-1); // Flag para item não presente
+        return aux;
+    }
+    if (palavra < no->item.GetPalavra())
+        return PesquisaRecursivo(no->esq, palavra);
+    else if (palavra > no->item.GetPalavra())
+        return PesquisaRecursivo(no->dir, palavra);
+    else
+        return no->item;
+}
+void ArvoreBinaria::Caminha(int tipo){
+    tipo=0;
+    Node *p = raiz;
+    PreOrdemPalavra(p);
+}
+void ArvoreBinaria::PreOrdemChave(Node *p, int chave)
 {
     if (p != nullptr)
-    {
-        p->item.ImprimeChave();
-        PreOrdemChave(p->esq);
-        PreOrdemChave(p->dir);
+    {   chave++;
+        p->item.ImprimePalavra();
+        PreOrdemChave(p->esq,chave);
+        PreOrdemChave(p->dir,chave);
     }
 }
 void ArvoreBinaria::PreOrdemPalavra(Node *p)
