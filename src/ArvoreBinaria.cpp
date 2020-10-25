@@ -113,14 +113,17 @@ void ArvoreBinaria::Caminha(){
     Node *p = raiz;
     int chave = 1;
     PreOrdemChave(p,chave);
+    PreOrdemPalavra(p);
 }
-void ArvoreBinaria::PreOrdemChave(Node *p, int chave)
+void ArvoreBinaria::PreOrdemChave(Node *p,int chave)
 {
+    
     if (p != nullptr)
     {   
+
         p->item.SetChave(chave);
-        chave++;
         p->item.ImprimeChave();
+        chave++;
         PreOrdemChave(p->esq,chave);
         PreOrdemChave(p->dir,chave);
     }

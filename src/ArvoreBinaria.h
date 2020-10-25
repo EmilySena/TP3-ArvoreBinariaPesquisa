@@ -23,7 +23,8 @@ private:
     void Antecessor(Node* q, Node* &r);
     void PreOrdemChave(Node *p,int chave);
     void PreOrdemPalavra(Node *p);
- /*   void InOrdem(Node *p);
+    /*   
+    void InOrdem(Node *p);
     void PosOrdem(Node *p);
     */
     Node *raiz;
