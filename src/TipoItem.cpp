@@ -11,8 +11,7 @@ TipoItem::~TipoItem(){
 std::string TipoItem::GetPalavra(){
     return Palavra;
 }
-void TipoItem::SetPalavra(std::string palavra)
-{
+void TipoItem::SetPalavra(std::string palavra){
     Palavra = palavra;
 }
 int TipoItem::GetChave(){

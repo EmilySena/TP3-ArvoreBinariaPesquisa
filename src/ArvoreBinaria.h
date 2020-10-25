@@ -21,7 +21,7 @@ private:
     TipoItem PesquisaRecursivo(Node* p, std::string palavra);
     void RemoveRecursivo(Node* &p, int chave);
     void Antecessor(Node* q, Node* &r);
-    void PreOrdemChave(Node *p,int chave);
+    void PreOrdemChave(Node *p,int &chave);
     void PreOrdemPalavra(Node *p);
     /*   
     void InOrdem(Node *p);

@@ -11,77 +11,74 @@ using std::vector;
 void Inserir(ArvoreBinaria &arvoreBinaria, string s);
 void Encripitar(ArvoreBinaria arvoreBinaria, vector<string> palavras);
 void Desencripitar(ArvoreBinaria arvoreBinaria, vector<int> chaves);
-    int main()
-    {
-        ArvoreBinaria arvoreBinaria;
-        char comando;
-        while (cin>>comando)
-        {
-            if (comando == 'i')
-            {
-                string s1;
-                cin >> s1;
-                Inserir(arvoreBinaria, s1);
-            }
-            else if(comando!='i'){
-                arvoreBinaria.Caminha();
-            
-            if (comando == 'e')
-            {
+void Substituir(ArvoreBinaria &arvoreBinaria, string s1, string s2);
+int main(){
+    ArvoreBinaria arvoreBinaria;
+    char comando;
+    while (cin>>comando){
+        if (comando == 'i'){
+            string s1;
+            cin >> s1;
+            Inserir(arvoreBinaria, s1);
+        }
+        else if(comando!='i'){
+            arvoreBinaria.Caminha();
+            if (comando == 'e'){
                 int n{};
                 cin>>n;
                 vector<string> palavras;
-                for (int i = 0; i < n; i++)
-                {
+                for (int i = 0; i < n; i++){
                     string s1;
                     cin >> s1;
                     palavras.push_back(s1);
                 }
                 Encripitar(arvoreBinaria, palavras);
             }
-            else if (comando == 'd')
-            {
+            else if (comando == 'd'){
                 int n{};
                 cin >> n;
                 vector<int> chaves;
-                for (int i = 0; i < n; i++)
-                {
+                for (int i = 0; i < n; i++){
                     int c{};
                     cin >> c;
                     chaves.push_back(c);
                 }
                 Desencripitar(arvoreBinaria, chaves);
             }
-            else if (comando == 's')
-            {
-                string s1;
-                cin >> s1;
+            else if (comando == 's'){
+                string s1,s2;
+                cin >> s1>>s2;
             }
-            }
-        };
+        }
+    };
 
-        return 0;
-    }
-    void Inserir(ArvoreBinaria & arvoreBinaria, string s)
+    return 0;
+}
+void Inserir(ArvoreBinaria & arvoreBinaria, string s){
+    TipoItem item;
+    item.SetPalavra(s);
+    arvoreBinaria.Insere(item);
+    //arvoreBinaria.Caminha();
+}
+void Encripitar(ArvoreBinaria arvoreBinaria, vector<string> palavras){
+    cout<<"Encriptando...\n";
+    for (auto palavra : palavras)
     {
-        TipoItem item;
-        item.SetPalavra(s);
-        arvoreBinaria.Insere(item);
-        //arvoreBinaria.Caminha();
+        cout << arvoreBinaria.Pesquisa(palavra).GetChave() << " ";
     }
-    void Encripitar(ArvoreBinaria arvoreBinaria, vector<string> palavras)
+}
+void Desencripitar(ArvoreBinaria arvoreBinaria, vector<int> chaves){
+    cout<<"Desencriptando...\n";
+    for (auto chave : chaves)
     {
-        cout<<"Encriptando...\n";
-        for (auto palavra : palavras)
-        {
-            cout << arvoreBinaria.Pesquisa(palavra).GetChave() << " ";
-        }
+        cout << arvoreBinaria.Pesquisa(chave).GetPalavra() << " ";
     }
-    void Desencripitar(ArvoreBinaria arvoreBinaria, vector<int> chaves)
-    {
-        cout<<"Desencriptando...\n";
-        for (auto chave : chaves)
-        {
-            cout << arvoreBinaria.Pesquisa(chave).GetPalavra() << " ";
-        }
-    }
+}
+void Substituir(ArvoreBinaria &arvoreBinaria, string s1, string s2){
+    int chave{};
+    chave = arvoreBinaria.Pesquisa(s1).GetChave();
+    arvoreBinaria.Remove(chave);
+    TipoItem item;
+    item.SetPalavra(s2);
+    arvoreBinaria.Insere(item);
+}
