@@ -8,13 +8,17 @@ public:
     ArvoreBinaria();
     ~ArvoreBinaria();
     void Insere(TipoItem item);
+    TipoItem Pesquisa(int chave);
+    void Remove(int chave);
     void Caminha(int tipo);
     void Limpa();
 
 private:
     void InsereRecursivo(Node *&p, TipoItem item);
     void ApagaRecursivo(Node *p);
-    void PorNivel();
+    TipoItem PesquisaRecursivo(Node* p, int chave);
+    void RemoveRecursivo(Node* &p, int chave);
+    void Antecessor(Node* q, Node* &r);
     void PreOrdem(Node *p);
  /*   void InOrdem(Node *p);
     void PosOrdem(Node *p);
