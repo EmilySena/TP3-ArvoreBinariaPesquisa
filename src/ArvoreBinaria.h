@@ -11,7 +11,7 @@ public:
     TipoItem Pesquisa(int chave);
     TipoItem Pesquisa(std::string palavra);
     void Remove(int chave);
-    void Caminha(int tipo);
+    void Caminha();
     void Limpa();
 
 private:

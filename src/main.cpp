@@ -27,10 +27,12 @@ int main() {
     item4.SetPalavra("dsfh");
     arvoreBinaria.Insere(item4);
     cout<<"caminhando::\n"<<endl;
-    arvoreBinaria.Caminha(4);
+    arvoreBinaria.Caminha();
     cout<<item2.GetChave()<<endl;
     cout << arvoreBinaria.Pesquisa("dsfh").GetChave() << endl;
-    arvoreBinaria.Caminha(4);
+    cout<<"--------------"<<endl;
+    arvoreBinaria.Caminha();
+    cout<<endl;
 
     return 0;
 }
