@@ -9,13 +9,11 @@ void ArvoreBinaria::Insere(TipoItem item){
     InsereRecursivo(raiz, item);
 }
 void ArvoreBinaria::InsereRecursivo(Node *&p, TipoItem item){
-    if (p == nullptr)
-    {
+    if (p == nullptr){
         p = new Node();
         p->item = item;
     }
-    else
-    {
+    else{
         if (item.GetPalavra() < p->item.GetPalavra())
             InsereRecursivo(p->esq, item);
         else
@@ -26,8 +24,7 @@ void ArvoreBinaria::Remove(int chave){
     return RemoveRecursivo(raiz, chave);
 }
 void ArvoreBinaria::Antecessor(Node *q, Node *&r){
-    if (r->dir != NULL)
-    {
+    if (r->dir != NULL){
         Antecessor(q, r->dir);
         return;
     }
@@ -38,24 +35,20 @@ void ArvoreBinaria::Antecessor(Node *q, Node *&r){
 }
 void ArvoreBinaria::RemoveRecursivo(Node *&no, int chave){
     Node *aux;
-    if (no == NULL)
-    {
+    if (no == NULL){
         throw("Item nao está presente");
     }
     if (chave < no->item.GetChave())
         return RemoveRecursivo(no->esq, chave);
     else if (chave > no->item.GetChave())
         return RemoveRecursivo(no->dir, chave);
-    else
-    {
-        if (no->dir == NULL)
-        {
+    else{
+        if (no->dir == NULL){
             aux = no;
             no = no->esq;
             free(aux);
         }
-        else if (no->esq == NULL)
-        {
+        else if (no->esq == NULL){
             aux = no;
             no = no->dir;
             free(aux);
@@ -64,13 +57,13 @@ void ArvoreBinaria::RemoveRecursivo(Node *&no, int chave){
             Antecessor(no, no->esq);
     }
 }
-TipoItem ArvoreBinaria::Pesquisa(int chave){
-    return PesquisaRecursivo(raiz, chave);
+TipoItem ArvoreBinaria::PesquisaC(int chave){
+    return PesquisaRecursivoC(raiz, chave);
 }
-TipoItem ArvoreBinaria::Pesquisa(std::string palavra){
-    return PesquisaRecursivo(raiz, palavra);
+TipoItem ArvoreBinaria::PesquisaP(std::string palavra){
+    return PesquisaRecursivoP(raiz, palavra);
 }
-TipoItem ArvoreBinaria::PesquisaRecursivo(Node *no, int chave){
+TipoItem ArvoreBinaria::PesquisaRecursivoC(Node *no, int chave){
     TipoItem aux;
     if (no == nullptr)
     {
@@ -78,13 +71,13 @@ TipoItem ArvoreBinaria::PesquisaRecursivo(Node *no, int chave){
         return aux;
     }
     if (chave < no->item.GetChave())
-        return PesquisaRecursivo(no->esq, chave);
+        return PesquisaRecursivoC(no->esq, chave);
     else if (chave > no->item.GetChave())
-        return PesquisaRecursivo(no->dir, chave);
+        return PesquisaRecursivoC(no->dir, chave);
     else
         return no->item;
 }
-TipoItem ArvoreBinaria::PesquisaRecursivo(Node *no, std::string palavra){
+TipoItem ArvoreBinaria::PesquisaRecursivoP(Node *no, std::string palavra){
     TipoItem aux;
     if (no == nullptr)
     {
@@ -92,9 +85,9 @@ TipoItem ArvoreBinaria::PesquisaRecursivo(Node *no, std::string palavra){
         return aux;
     }
     if (palavra < no->item.GetPalavra())
-        return PesquisaRecursivo(no->esq, palavra);
+        return PesquisaRecursivoP(no->esq, palavra);
     else if (palavra > no->item.GetPalavra())
-        return PesquisaRecursivo(no->dir, palavra);
+        return PesquisaRecursivoP(no->dir, palavra);
     else
         return no->item;
 }
@@ -102,7 +95,7 @@ void ArvoreBinaria::Caminha(){
     Node *p = raiz;
     int chave = 1;
     PreOrdemChave(p,chave);
-    PreOrdemPalavra(p);
+    //PreOrdemPalavra(p);
 }
 void ArvoreBinaria::PreOrdemChave(Node *p,int &chave){
     
@@ -110,7 +103,7 @@ void ArvoreBinaria::PreOrdemChave(Node *p,int &chave){
     {   
 
         p->item.SetChave(chave);
-        p->item.ImprimeChave();
+        //p->item.ImprimeChave();
         chave++;
         PreOrdemChave(p->esq,chave);
         PreOrdemChave(p->dir,chave);
@@ -146,8 +139,7 @@ void ArvoreBinaria::Limpa(){
     raiz = nullptr;
 }
 void ArvoreBinaria::ApagaRecursivo(Node *p){
-    if (p != nullptr)
-    {
+    if (p != nullptr){
         ApagaRecursivo(p->esq);
         ApagaRecursivo(p->dir);
         delete p;

@@ -21,8 +21,8 @@ int main(){
             cin >> s1;
             Inserir(arvoreBinaria, s1);
         }
-        else if(comando!='i'){
-            arvoreBinaria.Caminha();
+        else {
+            //arvoreBinaria.Caminha();
             if (comando == 'e'){
                 int n{};
                 cin>>n;
@@ -43,11 +43,16 @@ int main(){
                     cin >> c;
                     chaves.push_back(c);
                 }
+                for(auto chave : chaves){
+                    cout<<"\n"<<chave<<" ";
+                }
+                cout<<endl;
                 Desencripitar(arvoreBinaria, chaves);
             }
             else if (comando == 's'){
                 string s1,s2;
                 cin >> s1>>s2;
+                Substituir(arvoreBinaria,s1,s2);
             }
         }
     };
@@ -58,27 +63,35 @@ void Inserir(ArvoreBinaria & arvoreBinaria, string s){
     TipoItem item;
     item.SetPalavra(s);
     arvoreBinaria.Insere(item);
-    //arvoreBinaria.Caminha();
+    arvoreBinaria.Caminha();
 }
 void Encripitar(ArvoreBinaria arvoreBinaria, vector<string> palavras){
-    cout<<"Encriptando...\n";
-    for (auto palavra : palavras)
-    {
-        cout << arvoreBinaria.Pesquisa(palavra).GetChave() << " ";
+    //cout<<"Encriptando...\n";
+    cout << endl;
+    for (auto palavra : palavras){
+        cout << arvoreBinaria.PesquisaP(palavra).GetChave() << " ";
     }
+    cout << endl;
 }
 void Desencripitar(ArvoreBinaria arvoreBinaria, vector<int> chaves){
-    cout<<"Desencriptando...\n";
-    for (auto chave : chaves)
-    {
-        cout << arvoreBinaria.Pesquisa(chave).GetPalavra() << " ";
+    //cout<<"Desencriptando...\n";
+    cout<<endl;
+    for (auto chave : chaves){
+        cout << arvoreBinaria.PesquisaC(chave).GetPalavra() << " ";
+        
     }
+    cout<<endl;
+    cout << arvoreBinaria.PesquisaC(2).GetPalavra() << " ";
+    cout << arvoreBinaria.PesquisaC(3).GetPalavra() << " ";
+    cout << arvoreBinaria.PesquisaC(5).GetPalavra() << " ";
+    cout << arvoreBinaria.PesquisaC(7).GetPalavra() << " "<<endl;
 }
 void Substituir(ArvoreBinaria &arvoreBinaria, string s1, string s2){
     int chave{};
-    chave = arvoreBinaria.Pesquisa(s1).GetChave();
+    chave = arvoreBinaria.PesquisaP(s1).GetChave();
     arvoreBinaria.Remove(chave);
     TipoItem item;
     item.SetPalavra(s2);
     arvoreBinaria.Insere(item);
+    arvoreBinaria.Caminha();
 }

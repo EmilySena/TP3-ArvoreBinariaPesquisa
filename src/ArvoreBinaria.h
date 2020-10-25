@@ -8,8 +8,8 @@ public:
     ArvoreBinaria();
     ~ArvoreBinaria();
     void Insere(TipoItem item);
-    TipoItem Pesquisa(int chave);
-    TipoItem Pesquisa(std::string palavra);
+    TipoItem PesquisaC(int chave);
+    TipoItem PesquisaP(std::string palavra);
     void Remove(int chave);
     void Caminha();
     void Limpa();
@@ -17,8 +17,8 @@ public:
 private:
     void InsereRecursivo(Node *&p, TipoItem item);
     void ApagaRecursivo(Node *p);
-    TipoItem PesquisaRecursivo(Node* p, int chave);
-    TipoItem PesquisaRecursivo(Node* p, std::string palavra);
+    TipoItem PesquisaRecursivoC(Node* p, int chave);
+    TipoItem PesquisaRecursivoP(Node* p, std::string palavra);
     void RemoveRecursivo(Node* &p, int chave);
     void Antecessor(Node* q, Node* &r);
     void PreOrdemChave(Node *p,int &chave);
