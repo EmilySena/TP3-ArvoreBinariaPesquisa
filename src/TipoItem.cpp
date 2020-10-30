@@ -5,16 +5,6 @@ TipoItem::TipoItem(){
     Chave=0;
 
 }
-TipoItem::TipoItem(int chave){
-    Chave = chave;
-}
-TipoItem::TipoItem(std::string palavra){
-    Palavra = palavra;
-}
-TipoItem::TipoItem(std::string palavra, int chave){
-    Chave = chave;
-    Palavra = palavra;
-}
 TipoItem::~TipoItem(){
 
 }

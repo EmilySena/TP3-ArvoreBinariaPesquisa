@@ -8,9 +8,6 @@ class TipoItem {
 
     public:
     TipoItem();
-    TipoItem(int chave);
-    TipoItem(std::string palavra);
-    TipoItem(std::string palavra, int chave);
     virtual ~TipoItem();
     std::string GetPalavra();
     int GetChave();

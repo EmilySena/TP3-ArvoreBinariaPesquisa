@@ -23,10 +23,10 @@ int main(){
         }
     
         if (comando == 'e'){
-            int n{};
-            cin>>n;
+            int k{};
+            cin>>k;
             vector<string> palavras;
-            for (int i = 0; i < n; i++){
+            for (int i = 0; i < k; i++){
                 string s1;
                 cin >> s1;
                 palavras.push_back(s1);
@@ -34,10 +34,10 @@ int main(){
             Encriptar(arvoreBinaria, palavras);
         }
         else if (comando == 'd'){
-            int n{};
-            cin >> n;
+            int k{};
+            cin >> k;
             vector<int> chaves;
-            for (int i = 0; i < n; i++){
+            for (int i = 0; i < k; i++){
                 int c{};
                 cin >> c;
                 chaves.push_back(c);
@@ -66,7 +66,6 @@ void Encriptar(ArvoreBinaria &arvoreBinaria, vector<string> palavras){
         cout << arvoreBinaria.Pesquisa(palavra).GetChave() << " ";
     }
     cout << endl;
-    arvoreBinaria.Caminha(); //arrumando as chaves
 }
 void Desencriptar(ArvoreBinaria &arvoreBinaria, vector<int> chaves){
     for (auto chave : chaves){
