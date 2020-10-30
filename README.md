@@ -2,9 +2,37 @@
 ## Trabalho Prático 3: As mensagens secretas da Aliança Rebelde
 ### Estrutura de Dados 2020/1
 
-## Introdução
+## 1. Introdução
 
 O objetivo deste programa é ajudar a Aliança Rebelde a enviar e receber mensagens criptografadas de modo a evitar que as mensagens sejam entendidas pelas forças do Darth Vader, caso alguma mensagem seja interceptada. Assim, o que foi desenvolvido foi uma forma de automatizar esse processo de encriptação e decriptação das mensagens para a Aliança Rebelde. Para implementar esse sistema foi utilizada uma árvore binária, e os detalhes dessa implementação seram abordados adiante.
+
+## Instruções:
+
+Pelo terminal:
+
+```sh
+git clone https://github.com/EmilySena/TP3-ArvoreBinariaPesquisa/
+```
+Vá para o diretório src:
+```sh
+cd src
+```
+Para compilar:
+```sh
+make
+```
+Nome do executável:
+```sh
+./tp3
+```
+Fazer os testes:
+```sh
+make test
+```
+Remover os arquivos .o gerados:
+```sh
+make clean
+```
 
 ## 2. Implementação 
 
